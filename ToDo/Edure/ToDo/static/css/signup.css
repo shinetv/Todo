@@ -1,0 +1,40 @@
+body{
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+h3{
+    text-align:center;
+    margin: 1px;
+    margin-right: 50px;
+    padding: 70px;
+    top: 20px;
+
+}
+h3:hover{
+    cursor: pointer;
+    color: red;
+
+}
+.container{
+    width: 320px;
+    height: 520px;
+    background:rgb(5, 5, 5);
+    color: rgb(255, 239, 239);
+    border-color:white;
+    top:65%;
+    left: 48%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing:border-box;
+    padding: 70px 30px;
+
+    
+}
+.container input{
+    border-color: red;
+
+}
+

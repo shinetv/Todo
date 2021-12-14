@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<title>
+		SIGNUP
+	</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+	<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+	<script src="https://kit.fontawesome.com/bd4f00994b.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	
+</head>
+<style>
+	.file {
+		visibility: hidden;
+		position: absolute;
+	}
+</style>	
+
+<body style="background-image: url({% static 'image/reg.jpg' %});">
+	
+
+
+	<h4 style="text-align: center;padding-top: 30px;margin-right: 40px;">SIGNUP HERE!</h4>
+	<h4 style="color : red;text-align:center;padding: 1px;">{{msg}}</h4>
+	<div class="container">
+		
+
+		<form action="/sign/" enctype="multipart/form-data" method="POST">
+			{% csrf_token %}
+			
+			<label for="exampleinput">Username</label>
+			<input type="text" name="User_name" placeholder="enter user name" required><br><br>
+			<label for="exampleinput">E-MAIL</label>
+			<input type="text" name="Mail_id" placeholder="eg:xyz@gfmail.com" required><br><br>
+			
+			<div class="form-group"> <label for="form_need">GENDER
+			</label> <select id="form_need" name="gender"
+				class="form-control" required="required"
+				data-error="Please specify your need.">
+				<option value="" selected disabled>--Select--
+				</option>
+				<option>Male</option>
+				<option>Female</option>
+				<option>Other</option>
+			</select> </div>
+			<label for="exampleinput">PASSWORD</label>
+			<input type="text" name="Password" placeholder="min 8 characer" required><br><br>
+			<label for="exampleinput">CONFIRM PASSWORD</label>
+			<input type="text" name="Confirm_password" placeholder="enter again" required><br>&nbsp;
+			
+			<input type="checkbox" name="checkbox" required>SEND MAIL FOR VERIFICATION</P>
+			<center><div class="container-login100-form-btn">
+				<button type="submit" class="btn btn-success" >
+						
+					JOIN US
+					
+					
+				</button>
+				
+			</div></center>
+
+
+
+		</form>
+	</div>
+
+
+	
+
+
+</body>
+</html>

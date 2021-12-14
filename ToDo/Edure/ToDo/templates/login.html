@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shines mask log in</title>
+        <link rel="shortcut icon" href="{% static 'image/logo.jpg' %}" type="image/x-icon">
+        <meta name="viewport" content="width-device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+        <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+        <script src="https://kit.fontawesome.com/bd4f00994b.js" crossorigin="anonymous"></script>
+    
+    </head>
+    
+    <body style="background-image: url(../static/image/es.jpg);">
+
+        <div class="login">
+            <img src="{% static 'image/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-hipster-vector-stock-91462914.jpg' %}" class="avatar">
+            <h1>LOG IN</h1>
+            <form   method="POST">
+                {% csrf_token %}
+
+                <label>username</label>
+                <input type="text" name="User_name" placeholder="enter name" required>
+                <label>password</label>
+                <input type="password" name="Password" placeholder="type password" required>
+                <center><div class="container-login100-form-btn">
+                    <button type="submit" class="btn btn-success">
+                            
+                        Login
+                        
+                        
+                    </button>
+                </div></center>
+                <a href="/sign/"><p>SIGNUP?</p></a>
+                
+               
+               
+            </form>
+            
+            
+    
+               
+            
+        </div>
+        <h2 style="color : red;text-align:center;padding: 1px;">{{msg}}</h2>
+
+         
+           
+        </section>
+    
+    </body>
+</html>

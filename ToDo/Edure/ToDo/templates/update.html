@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>
+        User Profile
+    </title>
+    <link rel="shortcut icon" href="{% static 'image/logo.jpg' %}" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width,initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="https://kit.fontawesome.com/bd4f00994b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<body>
+    <div class=control-sidebar-bg></div>
+    <div class="w3-container">
+        <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>LOGOUT</a></li>
+        <div class="container">
+            <form action="/updateedit/{{edit.id}}" method="POST">
+                {% csrf_token %}
+               
+              <div class="modal-body">
+               
+                <div class="col-md-10">
+                  <div class="form-group"> <label style="color: red;font-weight: bolder;" for="form_message"><u>TASK</u>
+                          </label> <input type="text" name="user_task" class="form-control" placeholder="" value="{{edit.user_task}}"></div>
+              </div>
+              <div class="row">
+              <div class="col-md-6">
+                <div class="form-group"> <label for="form_lastname">Completed(in %)
+                        *</label> <input id="form_lastname" type="text"
+                        name="percentage" class="form-control"
+                        placeholder="Please enter percentage *" value="{{edit.percentage}}"
+                        required="required" data-error="Lastname is required.">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group"> <label for="form_lastname">Date
+                        *</label> <input id="form_lastname" type="date"
+                        name="dates" class="form-control" value="{{edit.dates}}"
+                        placeholder=""
+                        required="required" data-error=" required.">
+                </div>
+            </div>
+          
+            
+          
+      
+           
+              </div>
+              <center><button type="submit" class="btn btn-warning">Done</button></center>
+
+                </form>
+
+</div>
+</div>
+</body>
+                </html>
+                
+            

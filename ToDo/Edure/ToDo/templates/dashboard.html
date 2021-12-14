@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>
+        User Profile
+    </title>
+    <link rel="shortcut icon" href="{% static 'image/logo.jpg' %}" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width,initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="https://kit.fontawesome.com/bd4f00994b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<body>
+    <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>LOGOUT</a></li><br>
+        
+    <div class="container">
+       
+            
+            <h2>Task</h2>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-search-plus" aria-hidden="true"></i>View Task</button><br><br><br><br><br><br>
+            <h2 style="color: blue;">Remaining Tasks</h2>
+            
+               
+                
+                <div class="row">
+                    {% for x in user_task %}
+                <div class="col-md-6">
+                <div class="card shadow" style="margin: 2px">
+                    <div class="card-body">
+                        <button class="btn btn-primary">{{x.user_task}}</button><br><br>
+                    <B>Date</B>:<p style="color: red;">{{x.dates}}</p>
+                        <B>Percentage</B>:<p style="color: red;">{{x.percentage}}</p>
+                        <a href="/update/{{x.id}}" class="btn btn-danger">UPDATE</a>
+                        <a href="/delete/{{x.id}}" class="btn btn-secondary btn-lg">Completed</a>
+                </div>
+            </div>
+           
+           
+        </div>
+        {% endfor %}
+    </div>
+                    
+                            
+
+        
+                    
+               
+                
+                  </div>
+                  
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+               
+                <div class="modal-content">
+                    
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Task</h4>
+                  </div>
+                  <form action="/dashboard/" method="POST">
+                    {% csrf_token %}
+                  <div class="modal-body">
+                   
+                    <div class="col-md-10">
+                      <div class="form-group"> <label style="color: red;font-weight: bolder;" for="form_message"><u>TASK</u>
+                              </label> <textarea id="form_message"
+                              name="user_task" class="form-control"
+                              placeholder="Write your report here." rows="4"
+                              required="required"
+                              data-error="Please, leave us a message."></textarea> </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group"> <label for="form_lastname">Completed(in %)
+                            *</label> <input id="form_lastname" type="text"
+                            name="percentage" class="form-control"
+                            placeholder="Please enter percentage *"
+                            required="required" data-error="Lastname is required.">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"> <label for="form_lastname">Date
+                            *</label> <input id="form_lastname" type="date"
+                            name="dates" class="form-control"
+                            placeholder=""
+                            required="required" data-error=" required.">
+                    </div>
+                </div>
+              
+                
+              
+          
+                <center><button type="submit" class="btn btn-warning">Done</button></center>
+
+                  </div>
+                    </form>
+                 
+                 
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                
+               
+                
+              </div>
+            </div>
+
+           
+            
+           
+                
+</body>
+
+</html>
